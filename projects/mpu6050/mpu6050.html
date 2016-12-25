@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head><title>Andreas Hove</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+	<link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css">
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css.css" type="text/css" />
+	
+	<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
+</head>
+<div class="body-container">
+	<div class="ui fixed inverted menu">
+		<div class="ui container">
+			<a href="#" class="header item">
+				andreashove
+			</a>
+			<div class="ui simple dropdown item">
+				Projects <i class="dropdown icon"></i>
+				<div class="menu">
+				  <div class="header">Arduino</div>
+				  <a class="item" href="../projects/mpu6050/mpu6050.html">MPU6050</a>
+				  <div class="divider"></div>
+				  
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ui stackable grid">
+		<div class="sixteen wide column">
+			<div class="row">
+				<div class="ui grid">
+					<div class="two wide column"></div>
+					<div class="twelve wide column">
+						<div class="ui header segment">
+							<h1 class="ui centered header">Arduino Uno R3 SMD and the InvenSense MPU-6050</h1>
+						</div>
+					</div>
+					<div class="two wide column"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="ui stackable grid">
+					<div class="two wide column"></div>
+					<div class="twelve wide column">
+						<div class="ui segment">
+						<h2>Content</h2>
+						<a href="#introduction">Introduction</a>
+						<h2>Introduction</h2>
+						<p>In this project, my goal is to read data from a MPU-6050 sensor, apply my . I'm trying to determine how accurate are these sensors are (read: how good of an algorithm can I make). I've chosen to go for an Arduino Uno R3 SMD and the very popular IMU: <strong>MPU-6050</strong>. My MPU is attached to a beautiful red breakout board from SparkFun (https://www.sparkfun.com/products/11028). </p></br>
+						
+						<h2>Hardware</h2>
+						- Arduino Uno R3 SMD </br>
+						- MPU-6050 </br>
+						- Cables </br>
+						
+						<h2>Software</h2>
+						- Arduino IDE (Download: https://www.arduino.cc/en/Main/Software)
+						
+						<h2>Connecting Arduino to MPU-6050</h2>
+						Arduino - MPU6050 </br>
+						3.3V - VCC </br>
+						GND - GND </br>
+						SDA - SDA </br>
+						SCL - SCL </br>
+						3.3V - AD0 </br>
+						
+						<h2>Soldering pin headers to breakout board</h2>
+						If your sensor is on a breakout board without pins, you'll have to solder on some pin headers. This is a much simpler task than you might think, so all you need is a soldering iron (your university has one) and some solder. Very simple to apply: 315 degrees celcius + 2 seconds to heat up + add solder + 1 second to sink into the hole. Don't read 100 tutorials; learn by doing (but perhaps you begin soldering your 1$ board instead of a 50$ one).
+						
+						If you have no idea what you are doing, then I'm just like you. One question you may have is; Which components/cables do i plug in first? Thats actually way wrong, plug them all in and then put the power on. If GND is not connected, will my breakout board fry? **** WILL IT ? **** I had to google that one myself as i wrote this. 
+						
+						Get a bunch of jumper cables, male to male is great for breadboard connections. And learn to dissmantle a cable with a cutting (what tool) tool. You'll see that one end is not as sharp as the other, use that one. And you'll need some cable to practice on.
+						
+						Use libraries, by all means, but if you are writing a thesis on it you should (must) understand the underlying functionality of it. You cant research shit you dont know anything about.
+						
+						Processing the data by using a complementary filter, which combines the data from the gyroscope and the aceelerometer. A simple function as: newAngle = gyroAngle*a + accelAngle*(1-a) will give you a combined angle value, and to favor one value over the other you simple change the paramterer a (a is tau/tau+dt). 
+						
+						Graphing is easily done in the Arduino IDE (version ?? and up) using the Signal Plotter found in the Tools menu. The graph auto-scales and is very simple usage:
+						
+						Just write to Serial your values, separated by a blank space:
+						Serial.print(value1);
+						Serial.print(" ");
+						Serial.println(value2);
+						
+						
+						
+						</div>
+						
+					</div>
+					<div class="two wide column"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="ui grid">
+					<div class="two wide column"></div>
+					<div class="twelve wide column">
+						<div class="ui comments">
+						  <h3 class="ui dividing header">Comments</h3>
+						  <div class="comment">
+							<a class="avatar">
+							  <img src="/images/avatar/small/matt.jpg">
+							</a>
+							<div class="content">
+							  <a class="author">Tester</a>
+							  <div class="metadata">
+								<span class="date">Today at 5:42PM</span>
+							  </div>
+							  <div class="text">
+								Comment text
+							  </div>
+							  <div class="actions">
+								<a class="reply">Reply</a>
+							  </div>
+							</div>
+						  </div>						
+						  <form class="ui reply form">
+							<div class="field">
+							  <textarea>Comment section not implemented.</textarea>
+							</div>
+							<div class="ui blue labeled submit icon button">
+							  <i class="icon edit"></i> Add Reply
+							</div>
+						  </form>
+						</div>
+					</div>
+					<div class="two wide column"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</html>
+
